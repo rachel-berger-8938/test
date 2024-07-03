@@ -14,7 +14,7 @@ namespace test.Controllers
         {
             this.userRepository = userRepository;
         }
-        [HttpPost(Name = "CreateUser")]
+        [HttpPost("CreateUser")]
         public async Task<ActionResult> CreateUser(User user)
         {
             try
@@ -26,7 +26,7 @@ namespace test.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, "error in employee creation");
             }
         }
-        [HttpDelete(Name = "DeleteUser")]
+        [HttpDelete( "DeleteUser")]
         public async Task<ActionResult> DeleteUser(int userId)
         {
             try
@@ -38,7 +38,7 @@ namespace test.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, "error in deleting employee");
             }
         }
-        [HttpPost(Name = "validateUser")]
+        [HttpPost("validateUser")]
         public bool validateUser(string userName, string password)
         {
             try
