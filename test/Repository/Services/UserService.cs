@@ -6,13 +6,9 @@ namespace test.Repository.Services
 
     public class UserService : IUser
     {
-        private readonly myDBContext appDbContext;
+      myDBContext appDbContext= new myDBContext();
 
-        public UserService(myDBContext appDbContext)
-
-        {
-            this.appDbContext = appDbContext;
-        }
+      
         public async Task<User> CreateUser(User user)
         {
             appDbContext.Add(user);
@@ -32,9 +28,9 @@ namespace test.Repository.Services
         {
             User? user = appDbContext.Users.Where(x => x.UserName == userName && x.Password == password).FirstOrDefault();
             if (user == null)
-                return true;
-            else
                 return false;
+            else
+                return true;
         }
     }
 }
